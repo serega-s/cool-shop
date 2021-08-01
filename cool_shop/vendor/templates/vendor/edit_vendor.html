@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Edit Vendor{% endblock %}
+
+{% block content %}
+<h1 class="title">Edit vendor</h1>
+
+<form action="." method="POST">
+  {% csrf_token %}
+
+  <div class="field">
+    <label for="name">Vendor name</label>
+    <div class="control">
+      <input type="text" name="name" value="{{ vendor.name }}" class="input" id="id_name">
+    </div>
+
+    <p class="help">This is not the same as the username!</p>
+  </div>
+
+  <div class="field">
+    <label for="email">Vendor email</label>
+    <div class="control">
+      <input type="email" name="email" id="id_email" class="input" value="{{ vendor.created_by.email }}">
+    </div>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <button class="button is-dark is-uppercase">Save changes</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

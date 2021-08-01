@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Edit Product{% endblock %}
+
+{% block content %}
+<h1 class="title">Edit product</h1>
+
+<form method="POST" action="." enctype="multipart/form-data">
+
+  {% csrf_token %}
+    <!-- {{ form.as_p }} -->
+    <div class="field">
+      <label for="category">Category</label>
+      {{ form.category }}
+    </div>
+    <div class="field">
+      <label for="image">Image</label>
+      {{ form.image }}
+    </div>
+    <div class="field">
+      <label for="title">Title</label>
+      {{ form.title }}
+    </div>
+    <div class="field">
+      <label for="description">Description</label>
+      {{ form.description }}
+    </div>
+    <div class="field">
+      <label for="price">Price</label>
+      {{ form.price }}
+    </div>
+
+    <div class="field">
+      <div class="control">
+        <button class="button is-dark is-uppercase">Save changes</button>
+      </div>
+    </div>
+</form>
+
+<hr>
+
+<h2 class="subtitle">Images</h2>
+
+<form action="." enctype="multipart/form-data" method="POST">
+  {% csrf_token %}
+  <div class="field">
+    {{ image_form.as_p }}
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <button class="button is-dark is-uppercase">Add image</button>
+    </div>
+  </div>
+</form>
+{% endblock %}
